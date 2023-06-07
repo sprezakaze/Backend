@@ -12,8 +12,8 @@ using webapi.Entities;
 namespace webapi.Migrations
 {
     [DbContext(typeof(ClothingContext))]
-    [Migration("20230603225257_migr5")]
-    partial class migr5
+    [Migration("20230607121600_test1")]
+    partial class test1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,9 +76,6 @@ namespace webapi.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<string>("InStock")
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
@@ -150,6 +147,9 @@ namespace webapi.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Password")
                         .IsRequired()

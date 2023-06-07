@@ -5,25 +5,25 @@
 namespace webapi.Migrations
 {
     /// <inheritdoc />
-    public partial class migr6 : Migration
+    public partial class test2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<bool>(
-                name: "IsAdmin",
-                table: "Users",
-                type: "boolean",
+            migrationBuilder.AddColumn<float>(
+                name: "rating",
+                table: "Clothings",
+                type: "real",
                 nullable: false,
-                defaultValue: false);
+                defaultValue: 0f);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "IsAdmin",
-                table: "Users");
+                name: "rating",
+                table: "Clothings");
         }
     }
 }

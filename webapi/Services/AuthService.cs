@@ -37,11 +37,13 @@ namespace webapi.Services
             {
                 throw new Exception("User w/ same Email is already exist");
             }
-            
-            var user = new User { 
-                Email = dto.Email, 
-                Password = dto.Password, 
-                Id = new Guid() 
+
+            var user = new User 
+            {
+                Email = dto.Email,
+                Password = dto.Password,
+                Id = new Guid(),
+                IsAdmin = false
             };
             await _context.AddAsync(user);
             

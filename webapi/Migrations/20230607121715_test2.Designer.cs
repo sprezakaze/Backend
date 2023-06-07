@@ -12,8 +12,8 @@ using webapi.Entities;
 namespace webapi.Migrations
 {
     [DbContext(typeof(ClothingContext))]
-    [Migration("20230604175157_migr7")]
-    partial class migr7
+    [Migration("20230607121715_test2")]
+    partial class test2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,9 +78,6 @@ namespace webapi.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<string>("InStock")
-                        .HasColumnType("text");
-
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
@@ -89,6 +86,9 @@ namespace webapi.Migrations
 
                     b.Property<string>("ProductPicture")
                         .HasColumnType("text");
+
+                    b.Property<float>("rating")
+                        .HasColumnType("real");
 
                     b.HasKey("ClothingId");
 
@@ -172,7 +172,7 @@ namespace webapi.Migrations
                         .IsRequired();
 
                     b.HasOne("webapi.Entities.Order", "Order")
-                        .WithMany("Items")
+                        .WithMany()
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -211,11 +211,6 @@ namespace webapi.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("webapi.Entities.Order", b =>
-                {
-                    b.Navigation("Items");
                 });
 #pragma warning restore 612, 618
         }

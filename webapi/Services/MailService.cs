@@ -33,7 +33,7 @@ namespace webapi.Services
             {
                 using var emailMessage = new MimeMessage();
 
-                emailMessage.From.Add(new MailboxAddress("CRM", _email));
+                emailMessage.From.Add(new MailboxAddress("AutoBot", _email));
                 emailMessage.To.Add(new MailboxAddress("Me", _email));
                 emailMessage.Subject = $"Заказ {order.Id}";
 
